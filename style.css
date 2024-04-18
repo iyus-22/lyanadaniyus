@@ -29,6 +29,7 @@ body {
 .hero {
   position: relative;
   min-height: 100vh;
+  z-index: 2000;
 }
 
 .hero h1,
@@ -64,16 +65,18 @@ body {
 .mynavbar {
   background-color: rgba(255, 255, 255, 0.3) !important;
   backdrop-filter: blur(4px);
+  margin-top: -45px;
+  /* z-index: -2; */
 }
 
-.mynavbar .offcanvas {
+/* .mynavbar .offcanvas {
   height: 100vh;
-}
+} */
 
 .mynavbar .navbar-brand,
 .mynavbar .offcanvas-title {
   font-family: 'Sacramento', cursive;
-  font-size: 3.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -85,12 +88,19 @@ body {
   background-image: url(img/bg.png);
   background-size: cover;
   min-height: 100vh;
-  margin-top: -6rem;
-  padding-top: 15rem;
+  /* margin-top: -6rem; */
+  padding-top: 5rem;
   padding-bottom: 5rem;
 }
 
-.home h2,
+.home h2 {
+  color: var(--sage);
+  font-family: "Reem Kufi", sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
 .info h2,
 .story h2,
 .gallery h2,
@@ -125,6 +135,10 @@ body {
 
 .home .couple img {
   width: 100%;
+}
+
+.home .icon-datetime {
+  padding-right: 10px;
 }
 
 .home .heart {
@@ -394,6 +408,10 @@ footer li {
   .home .heart {
     transform: translateX(-50%) translateY(45px);
   }
+
+  .mynavbar {
+    margin-top: -45px;
+  }
 }
 
 /* laptop */
@@ -403,7 +421,7 @@ footer li {
   }
 
   .simply-countdown > .simply-section {
-    padding: 70px;
+    padding: 40px;
   }
 
   .home .heart {
@@ -438,6 +456,10 @@ footer li {
     left: -13px;
     right: auto;
   }
+
+  .mynavbar {
+    margin-top: -30px;
+  }
 }
 
 /* tablet */
@@ -447,22 +469,26 @@ footer li {
   }
 
   .simply-countdown > .simply-section {
-    padding: 60px;
+    padding: 40px;
     margin: 5px;
   }
 
   .mynavbar .nav-link {
-    font-size: 2rem;
+    font-size: 1.3rem;
     text-align: center;
   }
 
-  .sticky-top {
+  /* .sticky-bottom {
     overflow: hidden;
-  }
+  } */
 
   .timeline li .timeline-image {
     width: 140px;
     height: 140px;
+  }
+
+  .mynavbar {
+    margin-top: -30px;
   }
 }
 
@@ -473,7 +499,7 @@ footer li {
   }
 
   .simply-countdown > .simply-section {
-    padding: 45px;
+    padding: 40px;
     margin: 3px;
   }
 
@@ -493,5 +519,9 @@ footer li {
 
   .timeline li .timeline-panel::after {
     top: 31px;
+  }
+
+  .mynavbar {
+    margin-top: -30px;
   }
 }
