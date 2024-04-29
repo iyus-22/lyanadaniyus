@@ -8,7 +8,7 @@
 body {
   font-size: 1.2rem;
   font-family: 'Work Sans', sans-serif;
-  min-height: 4000px;
+  /* min-height: 4000px; */
 }
 
 .hero::before {
@@ -87,7 +87,7 @@ body {
 .home {
   background-image: url(img/bg.png);
   background-size: cover;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   /* margin-top: -6rem; */
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -124,7 +124,7 @@ body {
 }
 
 .home .couple {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .home .couple h3 {
@@ -159,8 +159,9 @@ body {
 }
 
 .info {
-  background-color: var(--bg);
-  color: white;
+  /* background-color: var(--bg); */
+  background-color: #f5f5f5;
+  color: #1e1e1e;
   padding-top: 10rem;
   padding-bottom: 8rem;
 }
@@ -174,9 +175,14 @@ body {
   font-weight: 300;
 }
 
+.info .btn-custom {
+  background-color: var(--sage);
+  color: white;
+}
+
 .info .card {
   background-color: rgba(255, 255, 255, 0.2) !important;
-  color: white !important;
+  color: #1e1e1e !important;
   border: 1px solid #999;
 }
 
@@ -471,6 +477,8 @@ footer li {
   .simply-countdown > .simply-section {
     padding: 40px;
     margin: 5px;
+    width: 15px;
+    height: 15px;
   }
 
   .mynavbar .nav-link {
@@ -499,8 +507,10 @@ footer li {
   }
 
   .simply-countdown > .simply-section {
-    padding: 40px;
+    padding: 30px;
     margin: 3px;
+    width: 12px;
+    height: 12px;
   }
 
   .timeline li .timeline-image {
