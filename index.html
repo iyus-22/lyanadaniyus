@@ -152,6 +152,62 @@
     </div>
   </section>
 
+  <section id="rsvp" class="rsvp">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <h2>Kirim Ucapan</h2>
+          <p>Isi form di bawah ini untuk mengirim ucapan kepada kedua mempelai.</p>
+        </div>
+      </div>
+      
+      <form class="row align-items-center justify-content-center" method="POST"
+        action=""
+        id="my-form">
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="nama" name="nama" autocomplete="off">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="konfirmasi" class="form-label">Konfirmasi</label>
+            <select name="konfirmasi" id="konfirmasi" class="form-select">
+              <option selected disabled>Pilih salah satu</option>
+              <option value="Hadir">Hadir</option>
+              <option value="Tidak Hadir">Tidak Hadir</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="nama" class="form-label">Ucapan</label>
+            <textarea class="form-control" id="ucapan" name="ucapan" autocomplete="off"></textarea>
+          </div>
+        </div>
+        <div class="col-12" style="margin-top: 15px; margin-bottom: 15px;">
+          <button class="btn btn-primary btn-kirim">Kirim</button>
+          <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+          </button>
+        </div>
+      </form>
+
+      <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+        <strong>Terimakasih!</strong> Ucapan Anda sudah terkirim.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-6" id="ucapan-show">
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
       <div class="row">
@@ -179,7 +235,7 @@
   </nav>
 
   <div id="audio-container">
-    <audio id="song" autoplay loop>
+    <audio id="song" loop>
       <source src="audio/al-hijrotu.mp3" type="audio/mp3">
     </audio>
 
@@ -188,11 +244,10 @@
     </div>
   </div>
 
-
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
-
+  
   <script>
     simplyCountdown('.simply-countdown', {
       year: 2024, // required
@@ -209,16 +264,16 @@
   </script>
 
   <script>
-    const stickyTop = document.querySelector('.sticky-top');
-    const offcanvas = document.querySelector('.offcanvas');
+    // const stickyTop = document.querySelector('.sticky-top');
+    // const offcanvas = document.querySelector('.offcanvas');
 
-    offcanvas.addEventListener('show.bs.offcanvas', function () {
-      stickyTop.style.overflow = 'visible';
-    });
+    // offcanvas.addEventListener('show.bs.offcanvas', function () {
+    //   stickyTop.style.overflow = 'visible';
+    // });
 
-    offcanvas.addEventListener('hidden.bs.offcanvas', function () {
-      stickyTop.style.overflow = 'hidden';
-    });
+    // offcanvas.addEventListener('hidden.bs.offcanvas', function () {
+    //   stickyTop.style.overflow = 'hidden';
+    // });
 
   </script>
 
@@ -248,7 +303,7 @@
     }
 
     function playAudio() {
-      song.volume = 0.1;
+      song.volume = 0.5;
       audioIconWrapper.style.display = 'flex';
       song.play();
       isPlaying = true;
@@ -273,24 +328,97 @@
     }
     disableScroll();
   </script>
+
   <script>
-    window.addEventListener("load", function () {
-      const form = document.getElementById('my-form');
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const data = new FormData(form);
-        const action = e.target.action;
-        fetch(action, {
-          method: 'POST',
-          body: data,
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwRTH7jut12gZgEm5F5q0Re8HhPMRl8ccs-3Pchv9IXvQUuDUUGzwP4-3HopkGYMEgA/exec';
+    const form = document.forms['my-form'];
+    const btnKirim = document.querySelector('.btn-kirim');
+    const btnLoading = document.querySelector('.btn-loading');
+    const myAlert = document.querySelector('.my-alert');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // ketika tombol submit diklik
+      // tampilkan tombol loading, hilangkan tombol kirim
+      btnLoading.classList.toggle('d-none');
+      btnKirim.classList.toggle('d-none');
+      glow = "<div class='placeholder-glow mt-3'>"
+              + "<span class='placeholder col-4'></span>"
+              + "<span class='placeholder col-1 offset-6'></span>"
+              + "<span class='placeholder col-8'></span>"
+              + "</div>"
+              + "<div class='placeholder-glow mt-3'>"
+              + "<span class='placeholder col-4'></span>"
+              + "<span class='placeholder col-1 offset-6'></span>"
+              + "<span class='placeholder col-8'></span>"
+              + "</div>"
+              + "<div class='placeholder-glow mt-3'>"
+              + "<span class='placeholder col-4'></span>"
+              + "<span class='placeholder col-1 offset-6'></span>"
+              + "<span class='placeholder col-8'></span>"
+              + "</div>"
+      document.getElementById("ucapan-show").innerHTML = "";
+      document.getElementById("ucapan-show").innerHTML = glow;
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then((response) => {
+          fetchJSONData();
+          // tampilkan tombol kirim, hilangkan tombol loading
+          btnLoading.classList.toggle('d-none');
+          btnKirim.classList.toggle('d-none');
+          // tampilkan alert
+          myAlert.classList.toggle('d-none');
+          // reset formnya
+          form.reset();
+          // console.log('Success!', response);
         })
-          .then(() => {
-            alert("Konfirmasi kehadiran berhasil terkirim!");
-          })
-      });
+        .catch((error) => console.error('Error!', error.message));
     });
 
+    function fetchJSONData() {
+        fetch("https://script.google.com/macros/s/AKfycbyUpbP7w0njojXUt_hQX7yqkioSXb-N8_eKjPZL4yBMKMuc9KRq4rf234m5NmoCH4g6/exec",
+        {
+          mode: "cors"
+        })
+        .then((res) => {
+          // console.log(res)
+            if (!res.ok) {
+                throw new Error
+                    (`HTTP error! Status: ${res.status}`);
+            }
+            return res.json();
+        })
+        .then((data) => {
+          // console.log(data.data.length)
+          data.data.reverse();
+          text = "<ul class='list-group' style='max-height: 250px; overflow-y:auto; -webkit-overflow-scrolling: touch;'>";
+          for(var i = 0; i < data.data.length; i++) {
+            // console.log(data[i].nama)
+            if(data.data[i].konfirmasi == "Hadir"){
+              pillColor = " text-bg-success ";
+            } else { pillColor = " text-bg-secondary "; }
+            text += "<li class='list-group-item d-flex justify-content-between align-items-start'><div class='ms-2 me-auto' id='ucapan-tampil'><div class='fw-bold' id='nama-tampil'>"
+                    + data.data[i].nama
+                    + "<span> - <i class='fw-light text-secondary'>"
+                    + new Date(data.data[i].timestamp).toLocaleString('id-ID')
+                    + "</i></span>"
+                    + "</div>"
+                    + data.data[i].ucapan
+                    + "</div><span class='badge"
+                    + pillColor
+                    + "rounded-pill'>"
+                    + data.data[i].konfirmasi
+                    + "</span></li>";
+          }
+          text += "</ul>";
+          document.getElementById("ucapan-show").innerHTML = text;
+        })
+        .catch((error) => 
+          console.error("Unable to fetch data:", error));
+    }
+
+    fetchJSONData();
   </script>
+
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const nama = urlParams.get('n') || '';

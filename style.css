@@ -381,15 +381,15 @@ footer li {
 }
 
 .audio-icon-wrapper {
-  width: 4rem;
-  height: 4rem;
-  font-size: 4rem;
+  width: 3rem;
+  height: 3rem;
+  font-size: 3rem;
   position: fixed;
-  bottom: 2.5rem;
+  bottom: 7rem;
   right: 2rem;
   cursor: pointer;
-  color: white;
-  opacity: 0.5;
+  color: var(--sage);
+  /* opacity: 0.5; */
   mix-blend-mode: difference;
   animation: rotating 4s linear infinite;
   transform-origin: center;
@@ -397,6 +397,7 @@ footer li {
   justify-content: center;
   align-items: center;
   line-height: 0;
+  -webkit-animation: rotating 4s linear infinite;
 }
 
 @keyframes rotating {
