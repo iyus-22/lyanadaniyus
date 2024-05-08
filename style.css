@@ -2,7 +2,7 @@
   --pink: #f14e95;
   --sage: #819171;
   --bg: #0a0a0a;
-  --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
+  --shadow: 0 3px 3px rgba(0, 0, 0, 0.6);
 }
 
 body {
@@ -38,9 +38,14 @@ body {
   text-shadow: var(--shadow);
 }
 
-.hero h1 {
+/* .hero h1 {
   font-family: "Sacramento", cursive;
   font-size: 6rem;
+} */
+
+.hero h1 {
+  font-family: "Sofia", cursive;
+  font-size: 5rem;
 }
 
 .hero h4 {
@@ -483,10 +488,14 @@ footer li {
 }
 
 /* tablet */
-@media (max-width: 768px) {
+@media (max-width: 853px) {
   /* html {
     font-size: 65%;
   } */
+
+  .putra {
+    margin-top: 3rem;
+  }
 
   .simply-countdown > .simply-section {
     padding: 40px;
@@ -519,6 +528,9 @@ footer li {
   /* html {
     font-size: 60%;
   } */
+  .putra {
+    margin-top: 3rem;
+  }
 
   .simply-countdown > .simply-section {
     padding: 30px;
