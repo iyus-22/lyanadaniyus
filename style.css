@@ -687,7 +687,7 @@ a {
   flex-direction: column;
   align-items: center;
   row-gap: 4px;
-  color: var(--title-color);
+  color: var(--sage);
   font-weight: 600;
 }
 
@@ -708,7 +708,7 @@ a {
 /*Active link*/
 .active-link {
   position: relative;
-  color: var(--sage);
+  color: #536443;
   transition: 0.3s;
 }
 
@@ -766,7 +766,8 @@ a {
     /* display: block; */ /* Minimalist design, visible labels */
   }
   .nav__link:hover {
-    color: var(--first-color);
+    color:#697c56;
+    ;
   }
 
   /* First design, remove if you choose the minimalist design */
@@ -776,7 +777,7 @@ a {
     bottom: -0.75rem;
     width: 4px;
     height: 4px;
-    background-color: var(--first-color);
+    background-color: var(--sage);
     border-radius: 50%;
   }
 

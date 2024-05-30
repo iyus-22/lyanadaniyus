@@ -138,6 +138,7 @@
                 font-size: 1.2rem;
                 font-family: 'Amiri', sans-serif;
                 line-height: 48px;
+                margin-top: 30px;
               "
             >
               وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا
@@ -209,11 +210,11 @@
                 <div class="row justify-content-center">
                   <div class="col-md-6">
                     <i class="bi bi-clock d-block"></i>
-                    <p>08.00 - 10.00</p>
+                    <span>08.00 - 10.00</span>
                   </div>
                   <div class="col-md-6">
                     <i class="bi bi-calendar3 d-block"></i>
-                    <p>Minggu, 7 Juli 2024</p>
+                    <span>Minggu, 7 Juli 2024</span>
                   </div>
                 </div>
               </div>
@@ -250,40 +251,49 @@
           </div>
         </div>
 
-        <div class="row justify-content-center text-center mt-4">
-          <h3 class="mb-3">Adab Menghadiri Walimahan</h3>
-          <div class="col-6">
-            <img
-              class="img-fluid rounded-circle"
-              src="img/icon/masjid.png"
-              alt=""
-            />
-            <div class="description">Ingat waktu Sholat</div>
-          </div>
-          <div class="col-6">
-            <img
-              class="img-fluid rounded-circle"
-              src="img/icon/makan.png"
-              alt=""
-            />
-            <div class="description">Perhatikan adab makan dan minum</div>
-          </div>
-
-          <div class="col-6">
-            <img
-              class="img-fluid rounded-circle"
-              src="img/icon/berdoa.png"
-              alt=""
-            />
-            <div class="description">Mendoakan kedua mempelai</div>
-          </div>
-          <div class="col-6">
-            <img
-              class="img-fluid rounded-circle"
-              src="img/icon/kamera.png"
-              alt=""
-            />
-            <div class="description">Tidak mengambil gambar tanpa izin</div>
+        <div class="row justify-content-center text-center mt-5 mb-5">
+          <!-- <h3 class="mb-5">Adab Menghadiri Walimahan</h3> -->
+          <div class="col-10">
+            <div class="card text-center text-bg-light">
+              <div class="card-header">Adab Menghadiri Walimahan</div>
+              <div class="card-body mt-3">
+                  <div class="row justify-content-around text-center">
+                    <div class="col-md-2 col-5">
+                      <img
+                        class="img-fluid rounded-circle"
+                        src="img/icon/masjid.png"
+                        alt=""
+                      />
+                      <div class="description mb-3">Ingat waktu Sholat</div>
+                    </div>
+                    <div class="col-md-2 col-5">
+                      <img
+                        class="img-fluid rounded-circle"
+                        src="img/icon/makan.png"
+                        alt=""
+                      />
+                      <div class="description mb-3">Perhatikan adab makan dan minum</div>
+                    </div>
+                  <!-- </div> -->
+                  <!-- <div class="row justify-content-between text-center"> -->
+                    <div class="col-md-2 col-5">
+                      <img
+                        class="img-fluid rounded-circle"
+                        src="img/icon/berdoa.png"
+                        alt=""
+                      />
+                      <div class="description mb-3">Mendoakan kedua mempelai</div>
+                    </div>
+                    <div class="col-md-2 col-5">
+                      <img
+                        class="img-fluid rounded-circle"
+                        src="img/icon/kamera.png"
+                        alt=""
+                      />
+                      <div class="description mb-3">Tidak mengambil gambar tanpa izin</div>
+                    </div>
+                    </div></div></div>
+            </div>
           </div>
         </div>
       </div>
@@ -306,7 +316,7 @@
           action=""
           id="my-form"
         >
-          <div class="col-6">
+          <div class="col-5">
             <div class="mb-3">
               <label for="nama" class="form-label">Nama</label>
               <input
@@ -319,7 +329,7 @@
               />
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-5">
             <div class="mb-3">
               <label for="konfirmasi" class="form-label">Konfirmasi</label>
               <select
@@ -334,7 +344,7 @@
               </select>
             </div>
           </div>
-          <div class="col-12">
+          <div class="col-10">
             <div class="mb-3">
               <label for="nama" class="form-label">Ucapan</label>
               <textarea
@@ -346,7 +356,7 @@
               ></textarea>
             </div>
           </div>
-          <div class="col-12" style="margin-top: 15px; margin-bottom: 15px">
+          <div class="col-10" style="margin-top: 15px; margin-bottom: 15px">
             <button class="btn btn-primary btn-kirim">Kirim</button>
             <button
               class="btn btn-primary btn-loading d-none"
