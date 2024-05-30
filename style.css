@@ -2,7 +2,7 @@
   --pink: #f14e95;
   --sage: #819171;
   --bg: #0a0a0a;
-  --shadow: 0 3px 3px rgba(0, 0, 0, 0.6);
+  --shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
   --header-height: 3rem;
 
   /*========== Colors ==========*/
@@ -59,6 +59,7 @@ body {
 
 .hero h1,
 .hero h4,
+.hero h5,
 .hero p {
   text-shadow: var(--shadow);
 }
@@ -75,6 +76,13 @@ body {
 
 .hero h4 {
   font-size: 1.6rem;
+}
+
+.hero h5 {
+  font-family: "Sofia", cursive;
+  font-size: 1.5rem;
+  padding-top: 3rem;
+  font-weight: bold;
 }
 
 .hero p {
@@ -233,6 +241,11 @@ body {
   border-top: 1px solid #999;
   font-size: 0.9rem;
   font-weight: 300;
+}
+
+.info .icon-adab {
+  width: 200px;
+  height: 200px;
 }
 
 .story,
@@ -695,7 +708,7 @@ a {
 /*Active link*/
 .active-link {
   position: relative;
-  color: var(--first-color);
+  color: var(--sage);
   transition: 0.3s;
 }
 
