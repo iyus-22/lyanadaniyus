@@ -473,6 +473,16 @@ footer li {
   }
 }
 
+@media (min-width: 993px) {
+  .home .heart2 {
+    display: none;
+  }
+
+  .home #heart2 {
+    display: none;
+  }
+}
+
 /* laptop */
 @media (max-width: 992px) {
   /* html {
@@ -487,8 +497,30 @@ footer li {
     font-size: 1rem;
   }
 
+  .putra {
+    margin-top: 3rem;
+  }
+
   .home .heart {
     display: none;
+  }
+
+  .home .heart2 {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%) translateY(65px);
+  }
+
+  .home .heart2 i {
+    margin: auto;
+    color: var(--sage);
   }
 
   .timeline::before {
@@ -530,10 +562,6 @@ footer li {
   /* html {
     font-size: 65%;
   } */
-
-  .putra {
-    margin-top: 3rem;
-  }
 
   .simply-countdown > .simply-section {
     padding: 40px;
@@ -766,8 +794,7 @@ a {
     /* display: block; */ /* Minimalist design, visible labels */
   }
   .nav__link:hover {
-    color:#697c56;
-    ;
+    color: #697c56;
   }
 
   /* First design, remove if you choose the minimalist design */
